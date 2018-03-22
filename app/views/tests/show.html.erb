@@ -60,6 +60,6 @@
 
 <% if params[:results].present? %>
 <script type="text/javascript">
-  $('<%= "#" + @test.answer %>').addClass('correct');
+  $('#<%= @test.answer %>').addClass('correct');
 </script>
 <% end %>
