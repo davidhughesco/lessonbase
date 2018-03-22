@@ -17,6 +17,6 @@ class TestsController < InheritedResources::Base
     end
 
     def test_params
-      params.require(:test).permit(:question, :opt1_type, :opt1_words, :opt2_type, :opt2_words, :opt3_type, :opt3_words, :opt4_type, :opt4_words)
+      params.require(:test).permit(:question, :opt1_type, :opt1_words, :opt2_type, :opt2_words, :opt3_type, :opt3_words, :opt4_type, :opt4_words, :answer)
     end
 end

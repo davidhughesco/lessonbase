@@ -8,6 +8,12 @@
 // Bootstrap imports
 @import "bootstrap";
 
+// Bootstrap Fixes
+
+body {
+  font-family: "Rubik", "Helvetica", sans-serif;
+}
+
 // Custom Styles
 
 #testSlide {
@@ -16,6 +22,7 @@
 
 .question {
   font-size: 3em;
+  font-weight: 500;
   margin-bottom: 1em;
 }
 
@@ -25,6 +32,7 @@
 
 .options .row {
   padding: 0.5em 0;
+  margin-bottom: 0.5em;
 }
 
 .opt {
