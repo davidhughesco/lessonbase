@@ -1,0 +1,54 @@
+<div class="container">
+  <div id="responseForm" class="row justify-content-md-center">
+    <div class="col col-md-6">
+      <%= form_for(@response) do |f| %>
+        <% if @response.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@response.errors.count, "error") %> prohibited this response from being saved:</h2>
+
+            <ul>
+            <% @response.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= f.text_field :test_id, placeholder: "Test Number", class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :name, placeholder: "Name", class: "form-control" %>
+        </div>
+        <div class="field">
+          <%= f.hidden_field :answer %>
+        </div>
+        <div style="text-align:center">
+          <a class="btn btn-lg btn-primary" id="answerA">A</a>
+          <a class="btn btn-lg btn-primary" id="answerB">B</a>
+          <a class="btn btn-lg btn-primary" id="answerC">C</a>
+          <a class="btn btn-lg btn-primary" id="answerD">D</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$('#answerA').click(function() {
+  $('#response_answer').val('A');
+  $('form').submit();
+});
+$('#answerB').click(function() {
+  $('#response_answer').val('B');
+  $('form').submit();
+});
+$('#answerC').click(function() {
+  $('#response_answer').val('C');
+  $('form').submit();
+});
+$('#answerD').click(function() {
+  $('#response_answer').val('D');
+  $('form').submit();
+});
+</script>

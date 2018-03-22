@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question: MyText
+  opt1_type: MyString
+  opt1_words: MyString
+  opt2_type: MyString
+  opt2_words: MyString
+  opt3_type: MyString
+  opt3_words: MyString
+  opt4_type: MyString
+  opt4_words: MyString
+
+two:
+  question: MyText
+  opt1_type: MyString
+  opt1_words: MyString
+  opt2_type: MyString
+  opt2_words: MyString
+  opt3_type: MyString
+  opt3_words: MyString
+  opt4_type: MyString
+  opt4_words: MyString

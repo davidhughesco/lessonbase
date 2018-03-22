@@ -1,0 +1,80 @@
+// Font import
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700');
+
+// Custom variables
+
+// Bootstrap variables
+
+// Bootstrap imports
+@import "bootstrap";
+
+// Custom Styles
+
+#testSlide {
+  margin-top: 5em;
+}
+
+.question {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
+.options {
+  font-size: 2em;
+}
+
+.options .row {
+  padding: 0.5em 0;
+}
+
+.opt {
+  padding: 0.25em 0.5em;
+  border: 2px solid black;
+}
+
+.opt1, #answerA {
+  border-color: red;
+  color: red;
+  background: transparent;
+}
+
+.opt2, #answerB {
+  border-color: green;
+  color: green;
+  background: transparent;
+}
+
+.opt3, #answerC {
+  border-color: blue;
+  color: blue;
+  background: transparent;
+}
+
+.opt4, #answerD {
+  border-color: orange;
+  color: orange;
+  background: transparent;
+}
+
+.result {
+  float: right;
+}
+
+.correct {
+  background-color: #e6ffba;
+  outline: 2px solid green;
+}
+
+#toggleResults {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+#responseForm {
+  margin-top: 5em;
+}
+
+#responseForm .form-control {
+  text-align: center;
+}

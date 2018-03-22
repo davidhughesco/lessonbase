@@ -1,0 +1,55 @@
+<div id="testSlide" class="container">
+  <div class="row question">
+    <div class="col-sm-12">
+      <%= @test.question %>
+    </div>
+  </div>
+  <div class="options">
+    <div class="row">
+      <div class="col-sm-1">
+        <span class="opt opt1"><%= @test.opt1_type %></span>
+      </div>
+      <div class="col-sm-11">
+        <%= @test.opt1_words %>
+        <% if params[:results].present? %>
+          <span class="result"><%= @opt1_res %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row <%= 'correct' if params[:results].present? %>">
+      <div class="col-sm-1">
+        <span class="opt opt2"><%= @test.opt2_type %></span>
+      </div>
+      <div class="col-sm-11">
+        <%= @test.opt2_words %>
+        <% if params[:results].present? %>
+          <span class="result"><%= @opt2_res %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-1">
+        <span class="opt opt3"><%= @test.opt3_type %></span>
+      </div>
+      <div class="col-sm-11">
+        <%= @test.opt3_words %>
+        <% if params[:results].present? %>
+          <span class="result"><%= @opt3_res %></span>
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-1">
+        <span class="opt opt4"><%= @test.opt4_type %></span>
+      </div>
+      <div class="col-sm-11">
+        <%= @test.opt4_words %>
+        <% if params[:results].present? %>
+          <span class="result"><%= @opt4_res %></span>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%= link_to "Results", { results: "true" }, { id: "toggleResults", class: "btn btn-outline-dark" } %>
