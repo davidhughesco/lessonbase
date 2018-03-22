@@ -15,3 +15,10 @@
 //= require popper
 //= require bootstrap
 //= require_tree .
+
+// Hide Notice after 1.5s
+setTimeout(function() {
+  $(".alert").fadeOut( "slow", function() {
+    $(this).remove();
+  });
+}, 1500);

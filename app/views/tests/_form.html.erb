@@ -1,4 +1,5 @@
 <%= form_for(@test) do |f| %>
+
   <% if @test.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@test.errors.count, "error") %> prohibited this test from being saved:</h2>
@@ -11,47 +12,52 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :question %><br>
-    <%= f.text_area :question %>
+  <div class="row">
+    <div class="col-md-12">
+      <%= f.text_area :question, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :opt1_type %><br>
-    <%= f.text_field :opt1_type %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.text_field :opt1_type, class: "form-control" %>
+    </div>
+    <div class="col-md-10">
+      <%= f.text_field :opt1_words, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :opt1_words %><br>
-    <%= f.text_field :opt1_words %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.text_field :opt2_type, class: "form-control" %>
+    </div>
+    <div class="col-md-10">
+      <%= f.text_field :opt2_words, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :opt2_type %><br>
-    <%= f.text_field :opt2_type %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.text_field :opt3_type, class: "form-control" %>
+    </div>
+    <div class="col-md-10">
+      <%= f.text_field :opt3_words, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :opt2_words %><br>
-    <%= f.text_field :opt2_words %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.text_field :opt4_type, class: "form-control" %>
+    </div>
+    <div class="col-md-10">
+      <%= f.text_field :opt4_words, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :opt3_type %><br>
-    <%= f.text_field :opt3_type %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.text_field :answer, class: "form-control" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :opt3_words %><br>
-    <%= f.text_field :opt3_words %>
+  <div class="row">
+    <div class="col-md-2">
+      <%= f.submit 'Save', class: "btn btn-success" %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :opt4_type %><br>
-    <%= f.text_field :opt4_type %>
-  </div>
-  <div class="field">
-    <%= f.label :opt4_words %><br>
-    <%= f.text_field :opt4_words %>
-  </div>
-  <div class="field">
-    <%= f.label :answer %><br>
-    <%= f.text_field :answer %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
