@@ -74,26 +74,26 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-md-3">
-            <h3>A</h3>
+          <div id="opt1-col" class="col-md-3">
+            <h3><%= @test.opt1_type %></h3>
             <% @opt1_res.each do |r| %>
               <%= r.name %><br>
             <% end %>
           </div>
-          <div class="col-md-3">
-            <h3>B</h3>
+          <div id="opt2-col" class="col-md-3">
+            <h3><%= @test.opt2_type %></h3>
             <% @opt2_res.each do |r| %>
               <%= r.name %><br>
             <% end %>
           </div>
-          <div class="col-md-3 correct">
-            <h3>C</h3>
+          <div id="opt3-col" class="col-md-3">
+            <h3><%= @test.opt3_type %></h3>
             <% @opt3_res.each do |r| %>
               <%= r.name %><br>
             <% end %>
           </div>
-          <div class="col-md-3">
-            <h3>D</h3>
+          <div id="opt4-col" class="col-md-3">
+            <h3><%= @test.opt4_type %></h3>
             <% @opt4_res.each do |r| %>
               <%= r.name %><br>
             <% end %>
@@ -119,5 +119,6 @@
 <% if params[:results].present? %>
 <script type="text/javascript">
   $('.opt<%= @test.answer %>-row').addClass('correct');
+  $('#opt<%= @test.answer %>-col').addClass('correct');
 </script>
 <% end %>
