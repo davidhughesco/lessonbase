@@ -20,6 +20,10 @@ form > .row {
 
 // Custom Styles
 
+#formContainer {
+  margin-top: 3em;
+}
+
 .alert {
   border: none;
   border-radius: 0;
@@ -41,7 +45,7 @@ form > .row {
 }
 
 .options {
-  font-size: 2em;
+  font-size: 2.5em;
 }
 
 .options .row {
@@ -49,33 +53,53 @@ form > .row {
   margin-bottom: 0.5em;
 }
 
-.opt {
+.opt-type {
   padding: 0.25em 0.5em;
   border: 2px solid black;
 }
 
-.opt1, #answerA {
+.opt1 {
   border-color: red;
   color: red;
   background: transparent;
 }
 
-.opt2, #answerB {
+.opt2 {
   border-color: green;
   color: green;
   background: transparent;
 }
 
-.opt3, #answerC {
+.opt3 {
   border-color: blue;
   color: blue;
   background: transparent;
 }
 
-.opt4, #answerD {
+.opt4 {
   border-color: orange;
   color: orange;
   background: transparent;
+}
+
+#answerA {
+  border: 3px solid red;
+  color: red;
+}
+
+#answerB {
+  border: 3px solid green;
+  color: green;
+}
+
+#answerC {
+  border: 3px solid blue;
+  color: blue;
+}
+
+#answerD {
+  border: 3px solid orange;
+  color: orange;
 }
 
 .result {
@@ -87,7 +111,7 @@ form > .row {
   outline: 2px solid green;
 }
 
-#toggleResults {
+#slideActions {
   position: fixed;
   bottom: 5px;
   right: 5px;
@@ -99,4 +123,12 @@ form > .row {
 
 #responseForm .form-control {
   text-align: center;
+  font-size: 3em;
+  border: 3px solid black;
+}
+
+.btn-answer {
+  width: 100%;
+  font-size: 5em;
+  margin-bottom: 0.25em;
 }

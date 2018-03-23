@@ -5,61 +5,119 @@
     </div>
   </div>
   <div class="options">
-    <div id="opt1" class="row">
+
+    <div class="row opt1-row">
       <div class="col-md-1 col-sm-2">
-        <span class="opt opt1"><%= @test.opt1_type %></span>
+        <span class="opt-type opt1"><%= @test.opt1_type %></span>
       </div>
       <div class="col-md-11 col-sm-10">
         <%= @test.opt1_words %>
         <% if params[:results].present? %>
-          <span class="result"><%= @opt1_res %></span>
+          <span class="result"><%= @opt1_count %></span>
         <% end %>
       </div>
     </div>
-    <div id="opt2" class="row">
+
+    <div class="row opt2-row">
       <div class="col-md-1 col-sm-2">
-        <span class="opt opt2"><%= @test.opt2_type %></span>
+        <span class="opt-type opt2"><%= @test.opt2_type %></span>
       </div>
       <div class="col-md-11 col-sm-10">
         <%= @test.opt2_words %>
         <% if params[:results].present? %>
-          <span class="result"><%= @opt2_res %></span>
+          <span class="result"><%= @opt2_count %></span>
         <% end %>
       </div>
     </div>
-    <div id="opt3" class="row">
+    <div class="row opt3-row">
       <div class="col-md-1 col-sm-2">
-        <span class="opt opt3"><%= @test.opt3_type %></span>
+        <span class="opt-type opt3"><%= @test.opt3_type %></span>
       </div>
       <div class="col-md-11 col-sm-10">
         <%= @test.opt3_words %>
         <% if params[:results].present? %>
-          <span class="result"><%= @opt3_res %></span>
+          <span class="result"><%= @opt3_count %></span>
         <% end %>
       </div>
     </div>
-    <div id="opt4" class="row">
+    <div class="row opt4-row">
       <div class="col-md-1 col-sm-2">
-        <span class="opt opt4"><%= @test.opt4_type %></span>
+        <span class="opt-type opt4"><%= @test.opt4_type %></span>
       </div>
       <div class="col-md-11 col-sm-10">
         <%= @test.opt4_words %>
         <% if params[:results].present? %>
-          <span class="result"><%= @opt4_res %></span>
+          <span class="result"><%= @opt4_count %></span>
         <% end %>
       </div>
     </div>
   </div>
 </div>
 
-<% if params[:results].present? %>
-  <%= link_to "Close", @test, id: "toggleResults", class: "btn btn-outline-dark" %>
-<% else %>
-  <%= link_to "Results", { results: "true" }, { id: "toggleResults", class: "btn btn-outline-dark" } %>
-<% end %>
+<div id="slideActions">
+  <% if params[:results].present? %>
+    <button type="button" class="btn btn-sm btn-outline-dark" data-toggle="modal" data-target="#detailsModal">Details</button>
+    <%= link_to "Close", @test, id: "toggleResults", class: "btn btn-sm btn-outline-danger" %>
+  <% else %>
+    <%= link_to "Results", { results: "true" }, { id: "toggleResults", class: "btn btn-sm btn-outline-dark" } %>
+  <% end %>
+</div>
+
+<div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="detailsModalLabel">Detailed Results</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-md-3">
+            <h3>A</h3>
+            <% @opt1_res.each do |r| %>
+              <%= r.name %><br>
+            <% end %>
+          </div>
+          <div class="col-md-3">
+            <h3>B</h3>
+            <% @opt2_res.each do |r| %>
+              <%= r.name %><br>
+            <% end %>
+          </div>
+          <div class="col-md-3 correct">
+            <h3>C</h3>
+            <% @opt3_res.each do |r| %>
+              <%= r.name %><br>
+            <% end %>
+          </div>
+          <div class="col-md-3">
+            <h3>D</h3>
+            <% @opt4_res.each do |r| %>
+              <%= r.name %><br>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(document).on('keypress', function(e) {
+    var tag = e.target.tagName.toLowerCase();
+    if ( e.which === 49 && tag != 'input' && tag != 'textarea') {
+      $('#toggleResults')[0].click();
+    }
+    else if ( e.which === 50 && tag != 'input' && tag != 'textarea') {
+      $('#detailsModal').modal('show');
+    }
+  });
+</script>
 
 <% if params[:results].present? %>
 <script type="text/javascript">
-  $('#<%= @test.answer %>').addClass('correct');
+  $('.opt<%= @test.answer %>-row').addClass('correct');
 </script>
 <% end %>

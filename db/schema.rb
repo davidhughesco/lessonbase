@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180322170706) do
+ActiveRecord::Schema.define(version: 20180323121337) do
 
   create_table "plans", force: :cascade do |t|
     t.string   "title"
@@ -40,9 +40,10 @@ ActiveRecord::Schema.define(version: 20180322170706) do
     t.string   "opt3_words"
     t.string   "opt4_type"
     t.string   "opt4_words"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.string   "answer"
+    t.string   "question_type"
   end
 
   create_table "users", force: :cascade do |t|

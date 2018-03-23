@@ -12,48 +12,79 @@
     </div>
   <% end %>
 
-  <div class="row">
+  <div class="row" id="typeSelect">
     <div class="col-md-12">
+      <p style="margin-bottom:7px">Question Type</p>
+      <button type="button" id="aD" class="btn btn-secondary">A-D</button>
+      <button type="button" id="aC" class="btn btn-secondary">A-C</button>
+      <button type="button" id="1to4" class="btn btn-secondary">1-4</button>
+      <button type="button" id="1to2" class="btn btn-secondary">1-2</button>
+      <%= f.hidden_field :question_type, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="row" id="opt1Row">
+    <div class="col-md-12">
+      <%= f.label :question %>
       <%= f.text_area :question, class: "form-control" %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-2">
-      <%= f.text_field :opt1_type, class: "form-control" %>
-    </div>
-    <div class="col-md-10">
-      <%= f.text_field :opt1_words, class: "form-control" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2">
-      <%= f.text_field :opt2_type, class: "form-control" %>
-    </div>
-    <div class="col-md-10">
-      <%= f.text_field :opt2_words, class: "form-control" %>
+    <div class="col-md-12">
+      <%= f.label :opt1_words, "Options" %>
+      <%= f.hidden_field :opt1_type, class: "form-control" %>
+      <div class="input-group mb-2" id="opt1Label">
+        <div class="input-group-prepend">
+          <div class="input-group-text">-</div>
+        </div>
+        <%= f.text_field :opt1_words, class: "form-control" %>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <%= f.text_field :opt3_type, class: "form-control" %>
-    </div>
-    <div class="col-md-10">
-      <%= f.text_field :opt3_words, class: "form-control" %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-2">
-      <%= f.text_field :opt4_type, class: "form-control" %>
-    </div>
-    <div class="col-md-10">
-      <%= f.text_field :opt4_words, class: "form-control" %>
+  <div class="row" id="opt2Row">
+    <div class="col-md-12">
+      <%= f.hidden_field :opt2_type, class: "form-control" %>
+      <div class="input-group mb-2" id="opt2Label">
+        <div class="input-group-prepend">
+          <div class="input-group-text">-</div>
+        </div>
+        <%= f.text_field :opt2_words, class: "form-control" %>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <%= f.text_field :answer, class: "form-control" %>
+  <div class="row" id="opt3Row">
+    <div class="col-md-12">
+      <%= f.hidden_field :opt3_type, class: "form-control" %>
+      <div class="input-group mb-2" id="opt3Label">
+        <div class="input-group-prepend">
+          <div class="input-group-text">-</div>
+        </div>
+        <%= f.text_field :opt3_words, class: "form-control" %>
+      </div>
     </div>
   </div>
+  <div class="row" id="opt4Row">
+    <div class="col-md-12">
+      <%= f.hidden_field :opt4_type, class: "form-control" %>
+      <div class="input-group mb-2" id="opt4Label">
+        <div class="input-group-prepend">
+          <div class="input-group-text">-</div>
+        </div>
+        <%= f.text_field :opt4_words, class: "form-control" %>
+      </div>
+    </div>
+  </div>
+  <div class="row" id="correctSelect" style="display:none">
+    <div class="col-md-12">
+      <%= f.hidden_field :answer, class: "form-control" %>
+      <p style="margin-bottom:7px">Correct Answer</p>
+      <button type="button" id="opt1Correct" class="btn btn-secondary btn-correct"></button>
+      <button type="button" id="opt2Correct" class="btn btn-secondary btn-correct"></button>
+      <button type="button" id="opt3Correct" class="btn btn-secondary btn-correct"></button>
+      <button type="button" id="opt4Correct" class="btn btn-secondary btn-correct"></button>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-md-2">
       <%= f.submit 'Save', class: "btn btn-success" %>
@@ -61,3 +92,106 @@
   </div>
 
 <% end %>
+
+<script type="text/javascript">
+  $('#aD').click(function(){
+    $('#typeSelect button').removeClass('btn-success').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-success');
+    $('#test_question_type').val('aD');
+    $('.row').show().children().show();
+    $('#test_opt1_type').val('A');
+    $('#opt1Label .input-group-text').text('A');
+    $('#test_opt2_type').val('B');
+    $('#opt2Label .input-group-text').text('B');
+    $('#test_opt3_type').val('C');
+    $('#opt3Label .input-group-text').text('C');
+    $('#test_opt4_type').val('D');
+    $('#opt4Label .input-group-text').text('D');
+    $('#correctSelect').show();
+    $('.btn-correct').show();
+    $('#opt1Correct').text('A');
+    $('#opt2Correct').text('B');
+    $('#opt3Correct').text('C');
+    $('#opt4Correct').text('D');
+  });
+  $('#aC').click(function(){
+    $('#typeSelect button').removeClass('btn-success').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-success');
+    $('#test_question_type').val('aC');
+    $('.row').show().children().show();
+    $('#test_opt1_type').val('A');
+    $('#opt1Label .input-group-text').text('A');
+    $('#test_opt2_type').val('B');
+    $('#opt2Label .input-group-text').text('B');
+    $('#test_opt3_type').val('C');
+    $('#opt3Label .input-group-text').text('C');
+    $('#test_opt4_type').val('');
+    $('#opt4Row').hide();
+    $('#correctSelect').show();
+    $('.btn-correct').show();
+    $('#opt1Correct').text('A');
+    $('#opt2Correct').text('B');
+    $('#opt3Correct').text('C');
+    $('#opt4Correct').hide();
+  });
+  $('#1to4').click(function(){
+    $('#typeSelect button').removeClass('btn-success').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-success');
+    $('#test_question_type').val('1to4');
+    $('.row').show().children().show();
+    $('#test_opt1_type').val('1');
+    $('#opt1Label .input-group-text').text('1');
+    $('#test_opt2_type').val('2');
+    $('#opt2Label .input-group-text').text('2');
+    $('#test_opt3_type').val('3');
+    $('#opt3Label .input-group-text').text('3');
+    $('#test_opt4_type').val('4');
+    $('#opt4Label .input-group-text').text('4');
+    $('#correctSelect').show();
+    $('.btn-correct').show();
+    $('#opt1Correct').text('1');
+    $('#opt2Correct').text('2');
+    $('#opt3Correct').text('3');
+    $('#opt4Correct').text('4');
+  });
+  $('#1to2').click(function(){
+    $('#typeSelect button').removeClass('btn-success').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-success');
+    $('#test_question_type').val('1to2');
+    $('.row').show().children().show();
+    $('#test_opt1_type').val('1');
+    $('#opt1Label .input-group-text').text('1');
+    $('#test_opt2_type').val('2');
+    $('#opt2Label .input-group-text').text('2');
+    $('#test_opt3_type').val('');
+    $('#opt3Row').hide();
+    $('#test_opt4_type').val('');
+    $('#opt4Row').hide();
+    $('#correctSelect').show();
+    $('.btn-correct').show();
+    $('#opt1Correct').text('1');
+    $('#opt2Correct').text('2');
+    $('#opt3Correct').hide();
+    $('#opt4Correct').hide();
+  });
+  $('#opt1Correct').click(function(){
+    $('#test_answer').val('1');
+    $('.btn-correct').removeClass('btn-success').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-success');
+  });
+  $('#opt2Correct').click(function(){
+    $('#test_answer').val('2');
+    $('.btn-correct').removeClass('btn-success').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-success');
+  });
+  $('#opt3Correct').click(function(){
+    $('#test_answer').val('3');
+    $('.btn-correct').removeClass('btn-success').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-success');
+  });
+  $('#opt4Correct').click(function(){
+    $('#test_answer').val('4');
+    $('.btn-correct').removeClass('btn-success').addClass('btn-secondary');
+    $(this).removeClass('btn-secondary').addClass('btn-success');
+  });
+</script>
